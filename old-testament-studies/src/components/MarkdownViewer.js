@@ -14,12 +14,20 @@ function MarkdownViewer({ filePath, language }) {
     setLoading(true);
     
     // Adapt the file path based on the language
-    const localizedFilePath = language === 'es' 
-      ? filePath.replace(/\.md$/, '').replace(/Studies/, 'Estudios') + '.md'
-      : filePath;
+    let localizedFilePath = filePath;
+    
+    if (language === 'es') {
+      // Handle specific filename transformations
+      if (filePath === 'StudiesInIsaiah.md') {
+        localizedFilePath = 'EstudiosEnIsaias.md';
+      }
+      // Add more specific transformations here as needed for future files
+    }
       
     // Prepend the public URL to ensure correct path resolution
     const fullPath = `${process.env.PUBLIC_URL}/${localizedFilePath}`;
+    
+    console.log('Fetching markdown from:', fullPath); // For debugging
     
     fetch(fullPath)
       .then(response => {
