@@ -18,7 +18,10 @@ function MarkdownViewer({ filePath, language }) {
       ? filePath.replace(/\.md$/, '').replace(/Studies/, 'Estudios') + '.md'
       : filePath;
       
-    fetch(localizedFilePath)
+    // Prepend the public URL to ensure correct path resolution
+    const fullPath = `${process.env.PUBLIC_URL}/${localizedFilePath}`;
+    
+    fetch(fullPath)
       .then(response => {
         if (!response.ok) {
           throw new Error(`Failed to load markdown file: ${response.statusText}`);

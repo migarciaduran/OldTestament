@@ -69,7 +69,7 @@ function App() {
           <h2>{t(selectedStudy.titleKey)}</h2>
           <p>{t(selectedStudy.descriptionKey)}</p>
           <MarkdownViewer 
-            filePath={`/${selectedStudy.filename}`}
+            filePath={selectedStudy.filename}
             language={language} 
           />
         </div>
