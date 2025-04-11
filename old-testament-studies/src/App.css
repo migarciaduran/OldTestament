@@ -1,0 +1,116 @@
+.App {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.App-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eaecef;
+  margin-bottom: 30px;
+}
+
+.App-header h1 {
+  margin: 0;
+  color: #24292e;
+  font-size: 2.5rem;
+}
+
+.App-header p {
+  color: #586069;
+  font-size: 1.2rem;
+  margin: 10px 0 0;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  min-height: calc(100vh - 200px);
+}
+
+.study-selector {
+  flex: 0 0 250px;
+  border-right: 1px solid #eaecef;
+  padding-right: 20px;
+}
+
+.study-selector h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.study-selector ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.study-selector li {
+  margin-bottom: 10px;
+}
+
+.study-selector button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0366d6;
+  font-size: 1rem;
+  text-align: left;
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.study-selector button:hover {
+  background-color: #f6f8fa;
+}
+
+.study-selector button.active {
+  background-color: #f1f8ff;
+  font-weight: 600;
+}
+
+.study-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.study-content h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #24292e;
+}
+
+.study-content p {
+  color: #586069;
+  margin-bottom: 25px;
+}
+
+.App-footer {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 50px;
+  border-top: 1px solid #eaecef;
+  color: #586069;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .App-main {
+    flex-direction: column;
+  }
+
+  .study-selector {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid #eaecef;
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
