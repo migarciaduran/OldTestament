@@ -1,0 +1,18 @@
+{
+  "app": {
+    "title": "Old Testament Studies",
+    "subtitle": "Helpful guides for studying the books of the Old Testament",
+    "availableStudies": "Available Studies",
+    "loading": "Loading content...",
+    "error": "Error: {{message}}"
+  },
+  "studies": {
+    "isaiah": {
+      "title": "Studies in Isaiah",
+      "description": "A comprehensive study of the book of Isaiah"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Old Testament Studies"
+  }
+}

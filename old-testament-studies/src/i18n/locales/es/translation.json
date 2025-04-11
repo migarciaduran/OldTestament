@@ -1,0 +1,18 @@
+{
+  "app": {
+    "title": "Estudios del Antiguo Testamento",
+    "subtitle": "Guías útiles para estudiar los libros del Antiguo Testamento",
+    "availableStudies": "Estudios Disponibles",
+    "loading": "Cargando contenido...",
+    "error": "Error: {{message}}"
+  },
+  "studies": {
+    "isaiah": {
+      "title": "Estudios en Isaías",
+      "description": "Un estudio completo del libro de Isaías"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Estudios del Antiguo Testamento"
+  }
+}
