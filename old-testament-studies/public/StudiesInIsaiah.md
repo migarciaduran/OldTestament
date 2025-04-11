@@ -49,3 +49,128 @@
   - Vicarious suffering
   - Exaltation after humiliation
   - Most quoted passage in the New Testament
+
+### Section 2: Future Glory (Chapters 54-59)
+- Restoration promises to Zion (54)
+  - Image of barren woman becoming fertile
+  - Covenant of peace
+  - Security promises
+
+- Universal invitation (55-56)
+  - Free offer of salvation
+  - Inclusion of foreigners
+  - Importance of justice and righteousness
+
+- Rebuke and Hope (57-59)
+  - Criticism of leadership
+  - True vs. false worship
+  - Divine intervention promised
+
+### Section 3: New Creation (Chapters 60-66)
+- Glory of the New Jerusalem (60-62)
+  - Nations coming to Zion's light
+  - New name for God's people
+  - Economic transformation
+
+- Final Judgment and Hope (63-66)
+  - Divine warrior imagery
+  - Prayer for intervention
+  - New heavens and new earth
+  - Universal worship
+
+## Key Themes in Chapters 50-66
+
+1. Redemption through Suffering
+   - The Servant's voluntary suffering
+   - Redemptive purpose
+   - Victory through apparent defeat
+
+2. Universal Salvation
+   - Inclusion of foreigners
+   - All nations gathered to worship
+   - Breaking down of barriers
+
+3. New Creation
+   - Cosmic transformation
+   - Social reformation
+   - Spiritual renewal
+
+4. Divine Justice
+   - Judgment of evil
+   - Vindication of faithful
+   - Establishment of righteousness
+
+## Important Passages for Deep Study
+
+1. Isaiah 53 - The Suffering Servant
+   - Detailed prophecy of sacrificial suffering
+   - Connection to messianic fulfillment
+   - Impact on New Testament theology
+
+2. Isaiah 55:1-13 - The Great Invitation
+   - Universal call to salvation
+   - God's higher ways
+   - Joy and peace in redemption
+
+3. Isaiah 61:1-3 - The Anointed One
+   - Mission statement
+   - Quoted by Jesus in Luke 4
+   - Program of liberation
+
+4. Isaiah 65:17-25 - New Creation
+   - Vision of transformed world
+   - End of suffering
+   - Perfect peace and harmony
+
+## Literary Features in These Chapters
+
+1. Imagery
+   - Light and darkness
+   - Water and desert
+   - Building and restoration
+   - Marriage and family
+
+2. Structure
+   - Alternating judgment and hope
+   - Progressive revelation
+   - Climactic conclusion
+
+3. Poetic Devices
+   - Parallelism
+   - Metaphor
+   - Contrast
+   - Repetition
+
+## Contemporary Application
+
+1. Personal
+   - Trust in God's promises
+   - Patient endurance in suffering
+   - Hope in ultimate restoration
+
+2. Community
+   - Inclusive worship
+   - Social justice
+   - Care for marginalized
+
+3. Global
+   - Universal scope of salvation
+   - Environmental stewardship
+   - Peace between nations
+
+## Study Questions
+
+1. How does the Suffering Servant passage relate to:
+   - Historical Israel?
+   - Messianic prophecy?
+   - Contemporary application?
+
+2. What is the relationship between:
+   - Justice and mercy?
+   - Judgment and hope?
+   - Present suffering and future glory?
+
+3. How do these chapters present:
+   - God's character?
+   - Human responsibility?
+   - The future of creation?
