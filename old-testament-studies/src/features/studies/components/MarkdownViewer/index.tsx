@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useTranslation } from 'react-i18next';
+import { useParams, Link } from 'react-router-dom';
 
 // Import from feature-specific files
 import { useMarkdownContent } from '../../hooks/useMarkdownContent';
@@ -15,13 +16,24 @@ import './MarkdownViewer.css';
  * 
  * This component loads and renders Markdown content from a file.
  * It uses React Query for efficient data fetching, caching, and error handling.
- * Now uses the StudiesContext for state management.
+ * Now uses the StudiesContext for state management and React Router for navigation.
  * 
  * @returns React component
  */
 const MarkdownViewer: React.FC = () => {
   const { t } = useTranslation(); // Translation function
+  const { studyId } = useParams<{ studyId: string }>();
   const { selectedStudy, language, studies, setSelectedStudy } = useStudies();
+  
+  // Sync component with URL parameters
+  useEffect(() => {
+    if (studyId && studyId !== selectedStudy.id) {
+      const study = studies.find(s => s.id === studyId);
+      if (study) {
+        setSelectedStudy(study);
+      }
+    }
+  }, [studyId, studies, selectedStudy.id, setSelectedStudy]);
   
   // Use our custom hook to fetch the markdown content
   const { data: content, isLoading, error } = useMarkdownContent(
@@ -37,16 +49,15 @@ const MarkdownViewer: React.FC = () => {
     <div className="markdown-view-layout">
       {/* Sidebar showing selected file info and navigation */}
       <div className="selected-file-sidebar">
-        <h3>{t('app.availableStudies')}</h3>
-        <div className="study-list">
+        <h3>{t('app.availableStudies')}</h3>        <div className="study-list">
           {studies.map(study => (
-            <div 
+            <Link 
               key={study.id}
+              to={`/studies/${study.id}`}
               className={`study-item ${selectedStudy?.id === study.id ? 'active' : ''}`}
-              onClick={() => setSelectedStudy(study)}
             >
               {t(study.titleKey)}
-            </div>
+            </Link>
           ))}
         </div>
         

@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { Study } from '../types/Study.types';
 import { useTranslation } from 'react-i18next';
 
@@ -9,6 +10,7 @@ interface StudiesContextType {
   language: string;
   setSelectedStudy: (study: Study) => void;
   setLanguage: (language: string) => void;
+  navigateToStudy: (studyId: string) => void;
 }
 
 // Create the context with a default undefined value
@@ -28,10 +30,34 @@ export const StudiesProvider: React.FC<StudiesProviderProps> = ({
   initialStudies 
 }) => {
   const { i18n } = useTranslation();
-  const [selectedStudy, setSelectedStudy] = useState<Study>(initialStudies[0]);
+  const navigate = useNavigate();
+  const { studyId } = useParams<{ studyId: string }>();
+  const location = useLocation();
+  
+  // Set initial selected study based on URL parameter or default to first study
+  const findStudyById = (id: string): Study => {
+    return initialStudies.find(study => study.id === id) || initialStudies[0];
+  };
+  
+  const [selectedStudy, setSelectedStudy] = useState<Study>(
+    studyId ? findStudyById(studyId) : initialStudies[0]
+  );
+  
   const [language, setLanguage] = useState<string>(
     localStorage.getItem('language') || 'en'
   );
+    // Update selected study when URL changes
+  useEffect(() => {
+    if (studyId) {
+      const study = findStudyById(studyId);
+      setSelectedStudy(study);
+    }
+  }, [studyId, location.pathname, findStudyById]);
+  
+  // Navigate to study and update selected study
+  const navigateToStudy = (studyId: string): void => {
+    navigate(`/studies/${studyId}`);
+  };
   
   // Language change handler
   const handleLanguageChange = (lang: string): void => {
@@ -40,13 +66,20 @@ export const StudiesProvider: React.FC<StudiesProviderProps> = ({
     localStorage.setItem('language', lang);
   };
 
+  // Update URL when selected study changes through direct state updates
+  const handleSelectStudy = (study: Study): void => {
+    setSelectedStudy(study);
+    navigateToStudy(study.id);
+  };
+
   // The value that will be provided to consumers of this context
   const contextValue: StudiesContextType = {
     studies: initialStudies,
     selectedStudy,
     language,
-    setSelectedStudy,
-    setLanguage: handleLanguageChange
+    setSelectedStudy: handleSelectStudy,
+    setLanguage: handleLanguageChange,
+    navigateToStudy
   };
 
   return (
