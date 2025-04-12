@@ -2,15 +2,8 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './i18n/i18n'; // Import the i18n configuration
 import './App.css';
-import MarkdownViewer from './components/MarkdownViewer';
-
-// Define TypeScript interfaces
-interface Study {
-  id: string;
-  titleKey: string;
-  filename: string;
-  descriptionKey: string;
-}
+import MarkdownViewer from './features/studies/components/MarkdownViewer';
+import { Study } from './features/studies/types/Study.types';
 
 // Configuration for the Old Testament studies - will be replaced with translated content
 const studiesConfig: Study[] = [
