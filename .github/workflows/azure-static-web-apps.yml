@@ -1,0 +1,86 @@
+name: Azure App Service CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:          node-version: '18'
+          
+      - name: npm install and build
+        working-directory: ./old-testament-studies
+        run: |
+          npm ci
+          npm run build
+          
+      # Create server.js file to serve the app with Node.js
+      - name: Create server.js for Node.js
+        run: |
+          echo 'const express = require("express");
+          const path = require("path");
+          const app = express();
+          const PORT = process.env.PORT || 8080;
+
+          // Serve static files
+          app.use(express.static(path.join(__dirname, "build")));
+
+          // Handle SPA routing - serve index.html for all routes
+          app.get("*", (req, res) => {
+            res.sendFile(path.join(__dirname, "build", "index.html"));
+          });
+
+          app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+          });' > ./old-testament-studies/server.js
+          
+      # Create package.json for the production server
+      - name: Create production package.json
+        run: |
+          echo '{
+            "name": "old-testament-studies-server",
+            "version": "1.0.0",
+            "description": "Production server for Old Testament Studies app",
+            "main": "server.js",
+            "scripts": {
+              "start": "node server.js"
+            },
+            "dependencies": {
+              "express": "^4.18.2"
+            },
+            "engines": {
+              "node": "18.x"
+            }
+          }' > ./old-testament-studies/server-package.json
+          
+      # Prepare deployment package
+      - name: Prepare deployment package
+        run: |
+          mkdir -p deployment
+          cp -r ./old-testament-studies/build ./deployment/
+          cp ./old-testament-studies/server.js ./deployment/
+          cp ./old-testament-studies/server-package.json ./deployment/package.json
+          cd deployment && npm install --only=production
+          
+      - name: Zip artifact for deployment
+        run: |
+          cd deployment && zip -r ../release.zip .      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.AZURE_APP_NAME }}
+          package: release.zip
