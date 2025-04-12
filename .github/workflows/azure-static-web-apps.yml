@@ -13,7 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        - name: Set up Node.js
+      
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -62,8 +63,7 @@ jobs:
               "node": "18.x"
             }
           }' > ./old-testament-studies/server-package.json
-          
-      # Prepare deployment package
+            # Prepare deployment package
       - name: Prepare deployment package
         run: |
           mkdir -p deployment
@@ -71,7 +71,8 @@ jobs:
           cp ./old-testament-studies/server.js ./deployment/
           cp ./old-testament-studies/server-package.json ./deployment/package.json
           cd deployment && npm install --only=production
-            - name: Zip artifact for deployment
+          
+      - name: Zip artifact for deployment
         run: |
           cd deployment && zip -r ../release.zip .
           
