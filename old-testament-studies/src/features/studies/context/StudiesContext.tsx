@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 // Define the type for our context
 interface StudiesContextType {
   studies: Study[];
-  selectedStudy: Study;
+  selectedStudy: Study | null;
   language: string;
   setSelectedStudy: (study: Study) => void;
   setLanguage: (language: string) => void;
@@ -32,14 +32,13 @@ export const StudiesProvider: React.FC<StudiesProviderProps> = ({
   const { i18n } = useTranslation();
   const navigate = useNavigate();  const { studyId } = useParams<{ studyId: string }>();
   const location = useLocation();
-  
-  // Set initial selected study based on URL parameter or default to first study
-  const findStudyById = useCallback((id: string): Study => {
-    return initialStudies.find(study => study.id === id) || initialStudies[0];
+    // Set initial selected study based on URL parameter or default to first study
+  const findStudyById = useCallback((id: string): Study | null => {
+    return initialStudies.find(study => study.id === id) || (initialStudies.length > 0 ? initialStudies[0] : null);
   }, [initialStudies]);
   
-  const [selectedStudy, setSelectedStudy] = useState<Study>(
-    studyId ? findStudyById(studyId) : initialStudies[0]
+  const [selectedStudy, setSelectedStudy] = useState<Study | null>(
+    studyId ? findStudyById(studyId) : (initialStudies.length > 0 ? initialStudies[0] : null)
   );
   
   const [language, setLanguage] = useState<string>(

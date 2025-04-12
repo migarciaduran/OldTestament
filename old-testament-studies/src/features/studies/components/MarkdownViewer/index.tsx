@@ -36,19 +36,30 @@ const MarkdownViewer: React.FC = () => {
   
   // Sync component with URL parameters
   useEffect(() => {
-    if (studyId && studyId !== selectedStudy.id) {
+    if (studyId && selectedStudy && studyId !== selectedStudy.id) {
       const study = studies.find(s => s.id === studyId);
       if (study) {
         setSelectedStudy(study);
       }
     }
-  }, [studyId, studies, selectedStudy.id, setSelectedStudy]);
-  
-  // Use our custom hook to fetch the markdown content
+  }, [studyId, studies, selectedStudy, setSelectedStudy]);
+    // Use our custom hook to fetch the markdown content - always call hooks at the top level
   const { data: content, isLoading, error } = useMarkdownContent(
-    selectedStudy.filename,
+    selectedStudy?.filename || '',
     language
   );
+  
+  // Handle case when no study is selected
+  if (!selectedStudy) {
+    return (
+      <Box sx={{ p: 3 }}>
+        <Alert severity="info">
+          {t('app.noStudySelected', 'Please select a study to view')}
+        </Alert>
+      </Box>
+    );
+  }
+  
   // Conditional rendering based on query state
   if (isLoading) return (
     <Box sx={{ p: 3 }}>
@@ -129,7 +140,8 @@ const MarkdownViewer: React.FC = () => {
         )}
       </Paper>
       
-      {/* Markdown content area */}      <Paper 
+      {/* Markdown content area */}      
+      <Paper 
         elevation={2} 
         sx={{ 
           flex: 1,
@@ -241,7 +253,8 @@ const MarkdownViewer: React.FC = () => {
           },
           '& tr:nth-of-type(even) td': {
             backgroundColor: '#F7FAFC'
-          },          '& hr': {
+          },
+          '& hr': {
             border: 'none',
             height: '1px',
             backgroundColor: '#E2E8F0',
