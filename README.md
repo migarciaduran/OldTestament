@@ -37,3 +37,18 @@ To add new study materials:
 ## License
 
 This project is created for educational and personal study purposes.
+
+## Using Material-UI
+
+This project uses Material-UI (MUI) for styling and components. To use Material-UI in your components:
+
+1. Import the required MUI components and styles in your files. For example:
+
+   ```tsx
+   import Button from '@mui/material/Button';
+   import Typography from '@mui/material/Typography';
+   ```
+
+2. Refer to the [Material-UI documentation](https://mui.com/) for detailed usage and examples.
+
+3. Customize the theme by wrapping your application in a `ThemeProvider` and providing a custom theme if needed.
