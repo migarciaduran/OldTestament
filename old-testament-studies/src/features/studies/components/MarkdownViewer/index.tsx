@@ -12,9 +12,7 @@ import {
   ListItemText,
   Paper,
   Skeleton,
-  Alert,
-  useTheme,
-  useMediaQuery
+  Alert
 } from '@mui/material';
 
 // Import from feature-specific files
@@ -35,7 +33,6 @@ const MarkdownViewer: React.FC = () => {
   const { t } = useTranslation(); // Translation function
   const { studyId } = useParams<{ studyId: string }>();
   const { selectedStudy, language, studies, setSelectedStudy } = useStudies();
-  const theme = useTheme();
   
   // Sync component with URL parameters
   useEffect(() => {
