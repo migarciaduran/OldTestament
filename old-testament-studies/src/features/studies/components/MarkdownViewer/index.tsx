@@ -5,45 +5,33 @@ import { useTranslation } from 'react-i18next';
 
 // Import from feature-specific files
 import { useMarkdownContent } from '../../hooks/useMarkdownContent';
-import { Study } from '../../types/Study.types';
+import { useStudies } from '../../context/StudiesContext';
 
-// Import CSS as regular stylesheet instead of as a module
+// Import CSS as regular stylesheet
 import './MarkdownViewer.css';
-
-// Define component props interface
-interface MarkdownViewerProps {
-  filePath: string;
-  language: string;
-  studies?: Study[];
-  selectedStudy?: Study;
-  onSelectStudy?: (study: Study) => void;
-}
 
 /**
  * MarkdownViewer Component
  * 
  * This component loads and renders Markdown content from a file.
  * It uses React Query for efficient data fetching, caching, and error handling.
+ * Now uses the StudiesContext for state management.
  * 
- * @param props - Component props (filePath, language, studies, selectedStudy, onSelectStudy)
  * @returns React component
  */
-const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ 
-  filePath, 
-  language, 
-  studies = [], 
-  selectedStudy, 
-  onSelectStudy 
-}) => {
+const MarkdownViewer: React.FC = () => {
   const { t } = useTranslation(); // Translation function
+  const { selectedStudy, language, studies, setSelectedStudy } = useStudies();
   
   // Use our custom hook to fetch the markdown content
-  const { data: content, isLoading, error } = useMarkdownContent(filePath, language);
+  const { data: content, isLoading, error } = useMarkdownContent(
+    selectedStudy.filename,
+    language
+  );
 
   // Conditional rendering based on query state
   if (isLoading) return <div className="loading">{t('app.loading')}</div>;
   if (error) return <div className="error">{t('app.error', { message: error.message })}</div>;
-
   // Render the Markdown content
   return (
     <div className="markdown-view-layout">
@@ -55,7 +43,7 @@ const MarkdownViewer: React.FC<MarkdownViewerProps> = ({
             <div 
               key={study.id}
               className={`study-item ${selectedStudy?.id === study.id ? 'active' : ''}`}
-              onClick={() => onSelectStudy && onSelectStudy(study)}
+              onClick={() => setSelectedStudy(study)}
             >
               {t(study.titleKey)}
             </div>
