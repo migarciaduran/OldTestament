@@ -6,7 +6,13 @@
     "loading": "Cargando contenido...",
     "error": "Error: {{message}}",
     "currentlyViewing": "Viendo Actualmente",
-    "selectedLanguage": "Idioma"
+    "selectedLanguage": "Idioma",
+    "footerText": "Estudios del Antiguo Testamento"
+  },
+  "nav": {
+    "home": "Inicio",
+    "isaiah": "Isaías",
+    "about": "Acerca de"
   },
   "studies": {
     "isaiah": {

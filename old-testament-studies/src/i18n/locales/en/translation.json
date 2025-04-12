@@ -6,7 +6,13 @@
     "loading": "Loading content...",
     "error": "Error: {{message}}",
     "currentlyViewing": "Currently Viewing",
-    "selectedLanguage": "Language"
+    "selectedLanguage": "Language",
+    "footerText": "Old Testament Studies"
+  },
+  "nav": {
+    "home": "Home",
+    "isaiah": "Isaiah",
+    "about": "About"
   },
   "studies": {
     "isaiah": {

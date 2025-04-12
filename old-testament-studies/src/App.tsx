@@ -12,8 +12,12 @@ import {
   Container, 
   Typography, 
   Box, 
-  Paper 
+  Paper,
+  AppBar,
+  Toolbar,
+  Button
 } from '@mui/material';
+import BookIcon from '@mui/icons-material/Book'; // Import BookIcon
 
 // Configuration for the Old Testament studies - will be replaced with translated content
 const studiesConfig: Study[] = [
@@ -30,45 +34,59 @@ const studiesConfig: Study[] = [
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#0366d6',
+      main: '#5D5348', // Muted taupe - more minimalist
     },
     secondary: {
-      main: '#586069',
+      main: '#A29580', // Softer neutral tone - less contrast
     },
     background: {
-      default: '#fff',
-      paper: '#fff',
+      default: '#FAFAF8', // Very subtle off-white - minimalist approach
+      paper: '#FFFFFF', // Clean white for content areas
     },
+    text: {
+      primary: '#3B3A38', // Soft dark gray for text
+      secondary: '#6A6762', // Muted secondary text
+    }
   },
   typography: {
-    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    fontFamily: '"Segoe UI", "Helvetica", "Arial", sans-serif',
     h1: {
       fontSize: '2.5rem',
       fontWeight: 600,
-      color: '#24292e',
+      color: '#3B3A38',
     },
     h2: {
       fontSize: '1.8rem',
       fontWeight: 600,
-      color: '#24292e',
+      color: '#3B3A38',
     },
     h6: {
       fontSize: '1.2rem',
       fontWeight: 600,
     },
     subtitle1: {
-      color: '#586069',
+      color: '#6A6762',
       fontSize: '1.2rem',
     },
     body1: {
-      color: '#586069',
+      color: '#3B3A38',
+      lineHeight: 1.7,
     },
   },
   components: {
     MuiPaper: {
       styleOverrides: {
         root: {
-          boxShadow: 'none',
+          borderRadius: 8,
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 4,
+          textTransform: 'none',
+          fontWeight: 500,
         },
       },
     },
@@ -83,56 +101,72 @@ function App(): JSX.Element {
       <CssBaseline />
       <BrowserRouter>
         <StudiesProvider initialStudies={studiesConfig}>
-          <Container maxWidth="lg" sx={{ py: 2 }}>
-            <Box component="header" sx={{ 
-              textAlign: 'center', 
-              pb: 2, 
-              mb: 3, 
-              borderBottom: '1px solid #eaecef' 
-            }}>
-              <Typography variant="h1" component="h1">
-                {t('app.title')}
-              </Typography>
-              <Typography variant="subtitle1" sx={{ mt: 1 }}>
-                {t('app.subtitle')}
-              </Typography>
-              <Box sx={{ mt: 2 }}>
-                <LanguageSwitcher />
-              </Box>
-            </Box>
-            
-            <Paper 
-              component="main" 
-              elevation={0}
-              sx={{ 
-                display: 'flex', 
-                flexDirection: { xs: 'column', md: 'row' },
-                gap: 3,
-                minHeight: 'calc(100vh - 200px)'
-              }}
-            >
-              <Routes>
-                <Route path="/" element={<Navigate to="/studies/isaiah" replace />} />
-                <Route path="/studies/:studyId" element={<MarkdownViewer />} />
-              </Routes>
-            </Paper>
+          <Box sx={{ 
+            backgroundColor: '#FAFAF8', 
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
+            {/* Simple App Bar */}
+            <AppBar position="static" color="default" elevation={0} sx={{ backgroundColor: 'white', borderBottom: '1px solid #EEEEEE' }}>
+              <Container maxWidth="lg">
+                <Toolbar sx={{ justifyContent: 'space-between' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <BookIcon sx={{ mr: 1.5, color: 'primary.main', fontSize: '28px' }} />
+                    <Typography 
+                      variant="h6" 
+                      component="div" 
+                      sx={{ 
+                        flexGrow: 1,
+                        fontFamily: '"Cinzel", "Bookman Old Style", serif', // Use Cinzel font
+                        fontWeight: 600,
+                        letterSpacing: 0.5,
+                        fontSize: { xs: '1.1rem', sm: '1.25rem' } // Responsive font size
+                      }}
+                    >
+                      {t('app.title')}
+                    </Typography>
+                  </Box>
+                  <LanguageSwitcher />
+                </Toolbar>
+              </Container>
+            </AppBar>
 
+            {/* Main Content */}
+            <Container maxWidth="lg" sx={{ py: 3, flexGrow: 1 }}>
+              <Paper 
+                elevation={1} 
+                sx={{ 
+                  borderRadius: 2, 
+                  overflow: 'hidden',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.05)'
+                }}
+              >
+                <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/studies/isaiah" replace />} />
+                    <Route path="/studies/:studyId" element={<MarkdownViewer />} />
+                  </Routes>
+                </Box>
+              </Paper>
+            </Container>
+
+            {/* Footer */}
             <Box 
               component="footer" 
               sx={{ 
                 textAlign: 'center', 
-                py: 2, 
-                mt: 5, 
-                borderTop: '1px solid #eaecef',
-                color: 'text.secondary',
-                fontSize: '0.9rem'
+                py: 3, 
+                borderTop: '1px solid #EEEEEE',
+                backgroundColor: 'white',
+                mt: 'auto'
               }}
             >
-              <Typography variant="body2">
-                © {new Date().getFullYear()} Old Testament Studies
+              <Typography variant="body2" color="text.secondary">
+                © {new Date().getFullYear()} {t('app.footerText')}
               </Typography>
             </Box>
-          </Container>
+          </Box>
         </StudiesProvider>
       </BrowserRouter>
     </ThemeProvider>

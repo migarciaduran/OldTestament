@@ -54,7 +54,6 @@ const MarkdownViewer: React.FC = () => {
     selectedStudy.filename,
     language
   );
-
   // Conditional rendering based on query state
   if (isLoading) return (
     <Box sx={{ p: 3 }}>
@@ -135,64 +134,123 @@ const MarkdownViewer: React.FC = () => {
         )}
       </Paper>
       
-      {/* Markdown content area */}
-      <Paper 
-        elevation={0} 
+      {/* Markdown content area */}      <Paper 
+        elevation={2} 
         sx={{ 
           flex: 1,
           minWidth: 0,
-          p: { xs: 0, sm: 1 },
+          p: { xs: 2, sm: 3 },
+          borderRadius: 2,
+          backgroundColor: '#ffffff',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
           '& img': {
             maxWidth: '100%',
-            height: 'auto'
-          },
-          '& h1, & h2, & h3, & h4, & h5, & h6': {
-            color: '#24292e',
-            fontWeight: 600,
-            mt: 2, 
-            mb: 1
-          },
-          '& p': {
-            color: '#586069',
-            mb: 2.5
-          },
-          '& code': {
-            backgroundColor: '#f6f8fa',
-            borderRadius: '3px',
-            padding: '0.2em 0.4em',
-            fontFamily: 'monospace'
-          },
-          '& pre': {
-            backgroundColor: '#f6f8fa',
-            borderRadius: '3px',
-            p: 2,
-            overflowX: 'auto'
-          },
-          '& blockquote': {
-            borderLeft: '3px solid #dfe2e5',
-            color: '#6a737d',
-            pl: 2,
-            ml: 0,
+            height: 'auto',
+            borderRadius: 1,
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
             my: 2
           },
+          '& h1': {
+            color: '#2D3748',
+            fontWeight: 700,
+            mt: 3, 
+            mb: 2,
+            fontSize: { xs: '1.8rem', md: '2.2rem' },
+            borderBottom: '2px solid #EDF2F7',
+            pb: 1
+          },
+          '& h2': {
+            color: '#2D3748',
+            fontWeight: 600,
+            mt: 3, 
+            mb: 2,
+            fontSize: { xs: '1.5rem', md: '1.8rem' },
+            borderBottom: '1px solid #EDF2F7',
+            pb: 1
+          },
+          '& h3, & h4, & h5, & h6': {
+            color: '#4A5568',
+            fontWeight: 600,
+            mt: 2.5, 
+            mb: 1.5
+          },
+          '& p': {
+            color: '#2D3748',
+            mb: 2.5,
+            lineHeight: 1.7,
+            fontSize: '1.05rem'
+          },
+          '& ul, & ol': {
+            pl: 3,
+            mb: 2.5,
+            '& li': {
+              mb: 1,
+              pl: 0.5,
+              color: '#2D3748'
+            }
+          },
+          '& code': {
+            backgroundColor: '#F7FAFC',
+            borderRadius: '4px',
+            padding: '0.2em 0.4em',
+            fontFamily: '"Consolas", "Monaco", monospace',
+            fontSize: '0.9em',
+            color: '#2D3748'
+          },
+          '& pre': {
+            backgroundColor: '#F7FAFC',
+            borderRadius: '6px',
+            p: 2.5,
+            overflowX: 'auto',
+            boxShadow: 'inset 0 0 4px rgba(0,0,0,0.05)',
+            my: 2.5
+          },
+          '& blockquote': {
+            borderLeft: '4px solid #CBD5E0',
+            backgroundColor: '#F7FAFC',
+            color: '#4A5568',
+            px: 3,
+            py: 2,
+            ml: 0,
+            my: 3,
+            borderRadius: '0 4px 4px 0',
+            fontStyle: 'italic'
+          },
           '& a': {
-            color: '#0366d6',
+            color: '#4299E1',
             textDecoration: 'none',
+            fontWeight: 500,
+            transition: 'all 0.2s',
             '&:hover': {
+              color: '#2B6CB0',
               textDecoration: 'underline'
             }
           },
           '& table': {
-            borderCollapse: 'collapse',
+            borderCollapse: 'separate',
+            borderSpacing: 0,
             width: '100%',
-            mb: 2
+            mb: 3,
+            borderRadius: 1,
+            overflow: 'hidden',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
           },
           '& th, & td': {
-            border: '1px solid #dfe2e5',
+            border: '1px solid #E2E8F0',
             p: 1.5
           },
           '& th': {
-            backgroundColor: '#f6f8fa'
+            backgroundColor: '#F7FAFC',
+            fontWeight: 600,
+            color: '#4A5568'
+          },
+          '& tr:nth-of-type(even) td': {
+            backgroundColor: '#F7FAFC'
+          },          '& hr': {
+            border: 'none',
+            height: '1px',
+            backgroundColor: '#E2E8F0',
+            my: 4
           }
         }}
       >
