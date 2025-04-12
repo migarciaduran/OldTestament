@@ -4,7 +4,9 @@
     "subtitle": "Helpful guides for studying the books of the Old Testament",
     "availableStudies": "Available Studies",
     "loading": "Loading content...",
-    "error": "Error: {{message}}"
+    "error": "Error: {{message}}",
+    "currentlyViewing": "Currently Viewing",
+    "selectedLanguage": "Language"
   },
   "studies": {
     "isaiah": {

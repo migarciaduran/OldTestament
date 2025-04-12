@@ -10,6 +10,16 @@ import '../styles/MarkdownViewer.css'; // Component-specific styling
 interface MarkdownViewerProps {
   filePath: string;
   language: string;
+  studies?: Study[];
+  selectedStudy?: Study;
+  onSelectStudy?: (study: Study) => void;
+}
+
+interface Study {
+  id: string;
+  titleKey: string;
+  filename: string;
+  descriptionKey: string;
 }
 
 interface MarkdownContentResult {
@@ -79,7 +89,13 @@ const useMarkdownContent = (filePath: string, language: string): UseQueryResult<
  * @param props - Component props (filePath and language)
  * @returns React component
  */
-const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ filePath, language }) => {
+const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ 
+  filePath, 
+  language, 
+  studies = [], 
+  selectedStudy, 
+  onSelectStudy 
+}) => {
   const { t } = useTranslation(); // Translation function
   
   // Use our custom hook to fetch the markdown content
@@ -87,14 +103,39 @@ const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ filePath, language }) =
 
   // Conditional rendering based on query state
   if (isLoading) return <div className="loading">{t('app.loading')}</div>; // Show loading message
-  if (error) return <div className="error">{t('app.error', { message: error.message })}</div>; // Show error message
-
-  // Render the Markdown content
+  if (error) return <div className="error">{t('app.error', { message: error.message })}</div>; // Show error message  // Render the Markdown content
   return (
-    <div className="markdown-container">
-      {/* ReactMarkdown converts the markdown string to React components */}
-      {/* remarkGfm enables GitHub-flavored Markdown support */}
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{content || ''}</ReactMarkdown>
+    <div className="markdown-view-layout">
+      {/* Sidebar showing selected file info and navigation */}
+      <div className="selected-file-sidebar">
+        <h3>{t('app.availableStudies')}</h3>
+        <div className="study-list">
+          {studies.map(study => (
+            <div 
+              key={study.id}
+              className={`study-item ${selectedStudy?.id === study.id ? 'active' : ''}`}
+              onClick={() => onSelectStudy && onSelectStudy(study)}
+            >
+              {t(study.titleKey)}
+            </div>
+          ))}
+        </div>
+        
+        {selectedStudy && (
+          <div className="selected-file-info">
+            <h4>{t('app.currentlyViewing')}</h4>
+            <div className="selected-file-name">{t(selectedStudy.titleKey)}</div>
+            <div>{t('app.selectedLanguage')}: {language.toUpperCase()}</div>
+          </div>
+        )}
+      </div>
+      
+      {/* Markdown content area */}
+      <div className="markdown-container">
+        {/* ReactMarkdown converts the markdown string to React components */}
+        {/* remarkGfm enables GitHub-flavored Markdown support */}
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content || ''}</ReactMarkdown>
+      </div>
     </div>
   );
 };

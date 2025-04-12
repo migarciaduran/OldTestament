@@ -4,7 +4,9 @@
     "subtitle": "Guías útiles para estudiar los libros del Antiguo Testamento",
     "availableStudies": "Estudios Disponibles",
     "loading": "Cargando contenido...",
-    "error": "Error: {{message}}"
+    "error": "Error: {{message}}",
+    "currentlyViewing": "Viendo Actualmente",
+    "selectedLanguage": "Idioma"
   },
   "studies": {
     "isaiah": {

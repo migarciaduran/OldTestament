@@ -54,10 +54,15 @@ function App(): JSX.Element {
             Español
           </button>
         </div>
-      </header>
-      
+      </header>      
       <main className="App-main">
-        <MarkdownViewer filePath={selectedStudy.filename} language={language} />
+        <MarkdownViewer 
+          filePath={selectedStudy.filename} 
+          language={language} 
+          studies={studiesConfig}
+          selectedStudy={selectedStudy}
+          onSelectStudy={setSelectedStudy}
+        />
       </main>
     </div>
   );
