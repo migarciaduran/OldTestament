@@ -36,7 +36,6 @@ const MarkdownViewer: React.FC = () => {
   const { studyId } = useParams<{ studyId: string }>();
   const { selectedStudy, language, studies, setSelectedStudy } = useStudies();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   
   // Sync component with URL parameters
   useEffect(() => {
