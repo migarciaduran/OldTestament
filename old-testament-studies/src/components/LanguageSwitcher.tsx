@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStudies } from '../features/studies/context/StudiesContext';
-import { ToggleButtonGroup, ToggleButton, Tooltip } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton } from '@mui/material';
 import TranslateIcon from '@mui/icons-material/Translate';
 
 /**

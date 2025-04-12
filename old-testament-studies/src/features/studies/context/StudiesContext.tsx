@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useEffect, useCallback } from 'react';
 import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { Study } from '../types/Study.types';
 import { useTranslation } from 'react-i18next';
@@ -30,14 +30,13 @@ export const StudiesProvider: React.FC<StudiesProviderProps> = ({
   initialStudies 
 }) => {
   const { i18n } = useTranslation();
-  const navigate = useNavigate();
-  const { studyId } = useParams<{ studyId: string }>();
+  const navigate = useNavigate();  const { studyId } = useParams<{ studyId: string }>();
   const location = useLocation();
   
   // Set initial selected study based on URL parameter or default to first study
-  const findStudyById = (id: string): Study => {
+  const findStudyById = useCallback((id: string): Study => {
     return initialStudies.find(study => study.id === id) || initialStudies[0];
-  };
+  }, [initialStudies]);
   
   const [selectedStudy, setSelectedStudy] = useState<Study>(
     studyId ? findStudyById(studyId) : initialStudies[0]

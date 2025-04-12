@@ -14,8 +14,7 @@ import {
   Box, 
   Paper,
   AppBar,
-  Toolbar,
-  Button
+  Toolbar
 } from '@mui/material';
 import BookIcon from '@mui/icons-material/Book'; // Import BookIcon
 
