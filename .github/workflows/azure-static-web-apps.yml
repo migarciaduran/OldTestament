@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Set up Node.js
+        - name: Set up Node.js
         uses: actions/setup-node@v3
-        with:          node-version: '18'
+        with:
+          node-version: '18'
           
       - name: npm install and build
         working-directory: ./old-testament-studies
@@ -71,10 +71,11 @@ jobs:
           cp ./old-testament-studies/server.js ./deployment/
           cp ./old-testament-studies/server-package.json ./deployment/package.json
           cd deployment && npm install --only=production
-          
-      - name: Zip artifact for deployment
+            - name: Zip artifact for deployment
         run: |
-          cd deployment && zip -r ../release.zip .      - name: Login to Azure
+          cd deployment && zip -r ../release.zip .
+          
+      - name: Login to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
