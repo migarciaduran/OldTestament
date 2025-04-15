@@ -1,0 +1,16 @@
+{
+  "studies": {
+    "isaiah": {
+      "id": "isaiah",
+      "titleKey": "studies.isaiah.title",
+      "descriptionKey": "studies.isaiah.description",
+      "filePath": "isaiah.md"
+    },
+    "kingsOfJudah": {
+      "id": "kingsOfJudah",
+      "titleKey": "studies.kingsOfJudah.title",
+      "descriptionKey": "studies.kingsOfJudah.description",
+      "filePath": "kings-of-judah.md"
+    }
+  }
+}

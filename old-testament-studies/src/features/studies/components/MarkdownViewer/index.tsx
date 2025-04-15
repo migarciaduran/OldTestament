@@ -45,7 +45,7 @@ const MarkdownViewer: React.FC = () => {
   }, [studyId, studies, selectedStudy, setSelectedStudy]);
     // Use our custom hook to fetch the markdown content - always call hooks at the top level
   const { data: content, isLoading, error } = useMarkdownContent(
-    selectedStudy?.filename || '',
+    selectedStudy?.id || '',
     language
   );
   

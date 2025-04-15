@@ -23,13 +23,11 @@ const studiesConfig: Study[] = [
   {
     id: 'isaiah',
     titleKey: 'studies.isaiah.title',
-    filename: 'StudiesInIsaiah.md',
     descriptionKey: 'studies.isaiah.description'
   },
   {
     id: 'kingsOfJudah',
     titleKey: 'studies.kingsOfJudah.title',
-    filename: 'KingsOfJudah.md',
     descriptionKey: 'studies.kingsOfJudah.description'
   }
   // You can add more studies here in the future
