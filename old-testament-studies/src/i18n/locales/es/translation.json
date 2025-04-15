@@ -12,12 +12,17 @@
   "nav": {
     "home": "Inicio",
     "isaiah": "Isaías",
+    "kingsOfJudah": "Reyes de Judá",
     "about": "Acerca de"
   },
   "studies": {
     "isaiah": {
       "title": "Estudios en Isaías",
       "description": "Un estudio completo del libro de Isaías"
+    },
+    "kingsOfJudah": {
+      "title": "Reyes de Judá",
+      "description": "Un estudio de los reyes que gobernaron el reino del sur de Judá durante el período del reino dividido"
     }
   },
   "footer": {

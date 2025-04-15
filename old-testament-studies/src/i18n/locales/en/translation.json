@@ -12,12 +12,17 @@
   "nav": {
     "home": "Home",
     "isaiah": "Isaiah",
+    "kingsOfJudah": "Kings of Judah",
     "about": "About"
   },
   "studies": {
     "isaiah": {
       "title": "Studies in Isaiah",
       "description": "A comprehensive study of the book of Isaiah"
+    },
+    "kingsOfJudah": {
+      "title": "Kings of Judah",
+      "description": "A study of the kings who ruled the southern Kingdom of Judah during the divided kingdom period"
     }
   },
   "footer": {

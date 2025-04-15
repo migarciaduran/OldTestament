@@ -19,12 +19,15 @@ export const useMarkdownContent = (filePath: string, language: string): UseQuery
     queryFn: async (): Promise<string> => {
       // Adapt the file path based on the language
       let localizedFilePath = filePath;
-      
-      // Language-specific file name transformations
+        // Language-specific file name transformations
       if (language === 'es') {
         // For Spanish, transform certain filenames
         if (filePath === 'StudiesInIsaiah.md') {
           localizedFilePath = 'EstudiosEnIsaias.md';
+        }
+        // Kings of Judah transformation for Spanish
+        else if (filePath === 'KingsOfJudah.md') {
+          localizedFilePath = 'ReyesDeJuda.md';
         }
         // Add more specific transformations here as needed for future files
       }
