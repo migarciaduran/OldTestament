@@ -14,7 +14,7 @@ const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useStudies();
 
   const handleLanguageChange = (
-    event: React.MouseEvent<HTMLElement>,
+    _event: React.MouseEvent<HTMLElement>,
     newLanguage: string,
   ) => {
     if (newLanguage !== null) {

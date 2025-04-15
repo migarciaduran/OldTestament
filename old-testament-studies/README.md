@@ -13,14 +13,51 @@ This project provides a clean, interactive interface for studying the Old Testam
 - Verse-by-verse commentaries
 - Cross-references and contextual information
 
-Currently featuring studies on Isaiah, with plans to expand to other books of the Old Testament.
+Currently featuring studies on Isaiah and Kings of Judah, with plans to expand to other books of the Old Testament.
 
 ## Features
 
 - **Markdown Rendering**: Properly displays formatted content including tables, headings, and lists
+- **Multilingual Support**: Content available in English and Spanish with easy language switching
 - **Study Selection**: Navigate between different books and studies
 - **Responsive Design**: Works well on both desktop and mobile devices
-- **Expandable Structure**: Easily add new studies as Markdown files
+- **Structured Content**: Organized content management for easy maintenance
+
+## Tech Stack
+
+- **Frontend**: React, TypeScript, Material UI
+- **State Management**: React Context API
+- **Data Fetching**: TanStack Query (React Query)
+- **Internationalization**: i18next
+- **Styling**: Material UI with CSS-in-JS
+- **Formatting and Linting**: ESLint, Prettier
+
+## Project Structure
+
+```
+src/
+  features/                 # Domain-specific features grouped together
+    studies/                # The studies feature
+      components/           # UI components specific to studies
+      context/              # Context providers for studies
+      hooks/                # Custom hooks related to studies
+      types/                # TypeScript types for the feature
+  components/               # Shared/common components
+  i18n/                     # Internationalization setup
+    locales/                # Translation files by language
+  public/content/           # Structured markdown content
+    en/                     # English content
+    es/                     # Spanish content
+```
+
+## Content Management
+
+This project uses a structured content approach with:
+
+- Markdown files organized by language in the `public/content` directory
+- A content registry (`studies-registry.json`) that maps study IDs to their file paths
+- Path aliases configured in TypeScript for cleaner imports
+- A content management script in the `scripts` directory to help with translation verification and new study creation
 
 ## Getting Started
 
@@ -36,32 +73,45 @@ npm start
 
 This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Learn More
+## Development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Code Style
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project uses ESLint and Prettier for code quality and formatting:
 
-### Code Splitting
+```bash
+# Run ESLint
+npm run lint
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Run Prettier
+npm run format
+```
 
-### Analyzing the Bundle Size
+### Adding New Studies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To add a new study:
 
-### Making a Progressive Web App
+1. Use the content management script:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+node scripts/content-manager.js create-study --id exodus --title-en "Studies in Exodus" --title-es "Estudios en Éxodo"
+```
 
-### Advanced Configuration
+2. Edit the generated Markdown files in `public/content/en/` and `public/content/es/`
+3. Verify translations: `node scripts/content-manager.js check-translations`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Deployment
 
-### Deployment
+This project is deployed using Azure App Service with a CI/CD pipeline configured in GitHub Actions. The workflow in `.github/workflows/azure-static-web-apps.yml` handles:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Building the React application
+2. Setting up a Node.js server to serve the static files
+3. Deploying to Azure App Service
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is created for educational and personal study purposes.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.

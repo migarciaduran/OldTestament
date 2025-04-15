@@ -19,9 +19,31 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "checkJs": true
+    "checkJs": true,
+    
+    /* Additional Type Checking */
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    
+    /* Module Resolution */
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.spec.tsx",
+    "**/*.test.tsx"
   ]
 }

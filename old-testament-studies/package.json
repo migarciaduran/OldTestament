@@ -26,7 +26,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "verify": "npm run lint && npm run format:check",
+    "prepare": "cd .. && husky install old-testament-studies/.husky"
   },
   "eslintConfig": {
     "extends": [
@@ -47,9 +53,15 @@
     ]
   },
   "devDependencies": {
+    "@eslint/js": "^9.24.0",
     "@types/node": "^16.18.70",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
-    "typescript": "^4.9.5"
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "prettier": "^3.5.3",
+    "typescript": "^4.9.5",
+    "typescript-eslint": "^8.30.1"
   }
 }
