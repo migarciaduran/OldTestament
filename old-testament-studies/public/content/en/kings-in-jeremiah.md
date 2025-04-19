@@ -5,28 +5,24 @@
 Jeremiah's prophetic ministry spanned approximately from 627 BC to after 586 BC, covering the reigns of Judah's final kings before the Babylonian exile.
 
 ```mermaid
-timeline
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f9f9f9', 'primaryBorderColor': '#ccc'}}}%%
+gantt
     title Kings of Judah During Jeremiah's Ministry (627-586 BC)
+    dateFormat  YYYY
+    axisFormat  %Y BC
+    
     section Formative Period
-        640-609 BC : Josiah : Righteous king
-                    : Religious reforms
-                    : Found the Book of the Law
-                    : Jeremiah began ministry (627 BC)
-    section Egyptian Dominance
-        609 BC : Jehoahaz : Reigned only 3 months
-                 : Deposed by Pharaoh Necho
-        609-598 BC : Jehoiakim : Vassal first to Egypt, then Babylon
-                    : Opposed Jeremiah
-                    : Burned Jeremiah's scroll
-                    : Heavy taxation of the people
-    section Babylonian Crisis
-        598-597 BC : Jehoiachin (Jeconiah) : Reigned only 3 months
-                    : Surrendered to Nebuchadnezzar
-                    : First major deportation to Babylon
-        597-586 BC : Zedekiah : Last king of Judah
-                    : Vacillated between heeding and ignoring Jeremiah
-                    : Rebelled against Babylon
-                    : Jerusalem destroyed, Temple burned
+    Josiah (640-609 BC): active, josiah, -640, -609
+    Jeremiah's Call (627 BC): milestone, call, -627, 0
+    
+    section Egyptian Period
+    Jehoahaz (3 months): active, jehoahaz, -609, -609
+    Jehoiakim (609-598 BC): active, jehoiakim, -609, -598
+    
+    section Babylonian Period
+    Jehoiachin (3 months): active, jehoiachin, -598, -597
+    Zedekiah (597-586 BC): active, zedekiah, -597, -586
+    Jerusalem Falls (586 BC): milestone, fall, -586, 0
 ```
 
 ## Roles of Kings in Jeremiah's Narrative

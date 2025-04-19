@@ -10,17 +10,17 @@ flowchart TB
     classDef prophet fill:#ffffcc,stroke:#333,stroke-width:1px
     
     %% Kings and Prophet
-    Jeremiah["Jeremiah\n(Prophet 627-post 586 BC)"]:::prophet
+    Jeremiah["Jeremiah<br/>(Prophet 627-post 586 BC)"]:::prophet
     
-    Josiah["Josiah\n(640-609 BC)"]:::righteous
-    Jehoahaz["Jehoahaz/Shallum\n(609 BC)"]:::wicked
-    Jehoiakim["Jehoiakim\n(609-598 BC)"]:::wicked
-    Jehoiachin["Jehoiachin/Coniah\n(598-597 BC)"]:::wicked
-    Zedekiah["Zedekiah\n(597-586 BC)"]:::wicked
+    Josiah["Josiah<br/>(640-609 BC)"]:::righteous
+    Jehoahaz["Jehoahaz/Shallum<br/>(609 BC)"]:::wicked
+    Jehoiakim["Jehoiakim<br/>(609-598 BC)"]:::wicked
+    Jehoiachin["Jehoiachin/Coniah<br/>(598-597 BC)"]:::wicked
+    Zedekiah["Zedekiah<br/>(597-586 BC)"]:::wicked
     
     %% Foreign Kings
-    PharaohNecho["Pharaoh Necho II\n(Egypt)"]:::foreign
-    Nebuchadnezzar["Nebuchadnezzar II\n(Babylon)"]:::foreign
+    PharaohNecho["Pharaoh Necho II<br/>(Egypt)"]:::foreign
+    Nebuchadnezzar["Nebuchadnezzar II<br/>(Babylon)"]:::foreign
     
     %% Relationships - succession
     Josiah -->|succeeded by| Jehoahaz
@@ -39,15 +39,15 @@ flowchart TB
     Nebuchadnezzar -->|blinded, exiled| Zedekiah
     
     %% Jeremiah's relationships
-    Jeremiah -->|began ministry\nduring reign of| Josiah
+    Jeremiah -->|began ministry<br/>during reign of| Josiah
     Jeremiah -->|prophesied exile| Jehoahaz
-    Jeremiah -->|opposed by,\nscroll burned| Jehoiakim
-    Jeremiah -->|prophesied against\nas "broken pot"| Jehoiachin
-    Jeremiah -->|advised surrender,\nimprisoned by| Zedekiah
-    Jeremiah -->|called him\n"God's servant"| Nebuchadnezzar
+    Jeremiah -->|opposed by,<br/>scroll burned| Jehoiakim
+    Jeremiah -->|prophesied against<br/>as "broken pot"| Jehoiachin
+    Jeremiah -->|advised surrender,<br/>imprisoned by| Zedekiah
+    Jeremiah -->|called him<br/>"God's servant"| Nebuchadnezzar
     
     %% Legend
-    Legend["Legend"]
+    Legend[("Legend")]
     RighteousKing["Righteous King"]:::righteous
     WickedKing["Wicked King"]:::wicked
     ForeignRuler["Foreign Ruler"]:::foreign
@@ -62,29 +62,30 @@ flowchart TB
 ## Timeline Overview
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f9f9f9', 'primaryBorderColor': '#ccc'}}}%%
 gantt
     title Kings During Jeremiah's Prophetic Ministry
     dateFormat YYYY
     axisFormat %Y BC
     
     section Kings of Judah
-    Josiah           : done, jos, -640, -609
-    Jehoahaz         : done, jez, -609, -609
-    Jehoiakim        : done, jkm, -609, -598
-    Jehoiachin       : done, jcn, -598, -597
-    Zedekiah         : done, zed, -597, -586
+    Josiah (640-609 BC)           : josiah, -640, -609
+    Jehoahaz (609 BC)             : jehoahaz, -609, -609
+    Jehoiakim (609-598 BC)        : jehoiakim, -609, -598
+    Jehoiachin (598-597 BC)       : jehoiachin, -598, -597
+    Zedekiah (597-586 BC)         : zedekiah, -597, -586
     
     section Foreign Powers
-    Egyptian Control : egypt, -609, -605
-    Babylonian Control : babylon, -605, -586
+    Egyptian Control      : egypt, -609, -605
+    Babylonian Control    : babylon, -605, -586
     
     section Jeremiah's Ministry
-    Prophetic Call   : active, call, -627, -627
-    Scroll Written   : milestone, scroll, -604
-    Scroll Burned    : milestone, burned, -604
-    Cistern Incident : milestone, cistern, -587
-    Jerusalem Falls  : milestone, fall, -586
-    Taken to Egypt   : milestone, egypt2, -581
+    Prophetic Call (627 BC)     : milestone, call, -627, 0
+    Scroll Written (604 BC)     : milestone, scroll, -604, 0
+    Scroll Burned (604 BC)      : milestone, burned, -604, 0
+    Cistern Incident (587 BC)   : milestone, cistern, -587, 0
+    Jerusalem Falls (586 BC)    : milestone, fall, -586, 0
+    Taken to Egypt (581 BC)     : milestone, egypt2, -581, 0
 ```
 
 ## Key Relationships in Jeremiah's Ministry
