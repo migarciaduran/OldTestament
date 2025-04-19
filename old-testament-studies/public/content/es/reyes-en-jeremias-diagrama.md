@@ -8,27 +8,36 @@ flowchart TB
     classDef malvado fill:#ffcccc,stroke:#333,stroke-width:1px
     classDef extranjero fill:#e6e6ff,stroke:#333,stroke-width:1px
     classDef profeta fill:#ffffcc,stroke:#333,stroke-width:1px
+    classDef familyLink stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
     
     %% Reyes y Profeta
     Jeremias["Jeremías<br/>(Profeta 627-post 586 a.C.)"]:::profeta
     
     Josias["Josías<br/>(640-609 a.C.)"]:::justo
-    Joacaz["Joacaz / Salum<br/>(609 a.C.)"]:::malvado
-    Joacim["Joacim / Eliaquim<br/>(609-598 a.C.)"]:::malvado
-    Joaquin["Joaquín / Jeconías / Conías<br/>(598-597 a.C.)"]:::malvado
-    Sedequias["Sedequías / Matanías<br/>(597-586 a.C.)"]:::malvado
+    Joacaz["Joacaz / Salum<br/>(609 a.C., Hijo de Josías)"]:::malvado
+    Joacim["Joacim / Eliaquim<br/>(609-598 a.C., Hijo de Josías)"]:::malvado
+    Joaquin["Joaquín / Jeconías / Conías<br/>(598-597 a.C., Hijo de Joacim)"]:::malvado
+    Sedequias["Sedequías / Matanías<br/>(597-586 a.C., Hijo de Josías)"]:::malvado
     
     %% Reyes Extranjeros
     FaraonNecao["Faraón Necao II<br/>(Egipto)"]:::extranjero
     Nabucodonosor["Nabucodonosor II<br/>(Babilonia)"]:::extranjero
     
-    %% Relaciones - sucesión
+    %% Relaciones - sucesión (Líneas sólidas)
     Josias -->|sucedido por| Joacaz
     Joacaz -->|sucedido por| Joacim
     Joacim -->|sucedido por| Joaquin
     Joaquin -->|sucedido por| Sedequias
     
-    %% Intervenciones extranjeras
+    %% Relaciones Familiares (Líneas verdes discontinuas)
+    Josias -.->|padre de| Joacaz
+    Josias -.->|padre de| Joacim
+    Josias -.->|padre de| Sedequias
+    Joacim -.->|padre de| Joaquin
+    Sedequias -.->|tío de| Joaquin
+    linkStyle 4,5,6,7,8 stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
+    
+    %% Intervenciones extranjeras (Líneas sólidas)
     FaraonNecao -->|mató a| Josias
     FaraonNecao -->|depuso, exilió a Egipto| Joacaz
     FaraonNecao -->|instaló a| Joacim
@@ -38,7 +47,7 @@ flowchart TB
     Nabucodonosor -->|instaló como títere| Sedequias
     Nabucodonosor -->|cegó, exilió| Sedequias
     
-    %% Relaciones de Jeremías
+    %% Relaciones de Jeremías (Líneas sólidas)
     Jeremias -->|inició ministerio<br/>durante reinado de| Josias
     Jeremias -->|profetizó exilio| Joacaz
     Jeremias -->|opuesto por,<br/>rollo quemado| Joacim
@@ -52,11 +61,13 @@ flowchart TB
     ReyMalvado["Rey Malvado"]:::malvado
     GobernanteExtranjero["Gobernante Extranjero"]:::extranjero
     NodoProfeta["Profeta"]:::profeta
+    LazoFamiliar["--- Lazo Familiar"]:::familyLink
     
     Leyenda --- ReyJusto
     Leyenda --- ReyMalvado
     Leyenda --- GobernanteExtranjero
     Leyenda --- NodoProfeta
+    Leyenda --- LazoFamiliar
 ```
 
 ## Panorama Cronológico

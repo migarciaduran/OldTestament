@@ -8,27 +8,36 @@ flowchart TB
     classDef wicked fill:#ffcccc,stroke:#333,stroke-width:1px
     classDef foreign fill:#e6e6ff,stroke:#333,stroke-width:1px
     classDef prophet fill:#ffffcc,stroke:#333,stroke-width:1px
+    classDef familyLink stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
     
     %% Kings and Prophet
     Jeremiah["Jeremiah<br/>(Prophet 627-post 586 BC)"]:::prophet
     
     Josiah["Josiah<br/>(640-609 BC)"]:::righteous
-    Jehoahaz["Jehoahaz/Shallum<br/>(609 BC)"]:::wicked
-    Jehoiakim["Jehoiakim<br/>(609-598 BC)"]:::wicked
-    Jehoiachin["Jehoiachin/Coniah<br/>(598-597 BC)"]:::wicked
-    Zedekiah["Zedekiah<br/>(597-586 BC)"]:::wicked
+    Jehoahaz["Jehoahaz/Shallum<br/>(609 BC, Son of Josiah)"]:::wicked
+    Jehoiakim["Jehoiakim/Eliakim<br/>(609-598 BC, Son of Josiah)"]:::wicked
+    Jehoiachin["Jehoiachin/Coniah<br/>(598-597 BC, Son of Jehoiakim)"]:::wicked
+    Zedekiah["Zedekiah/Mattaniah<br/>(597-586 BC, Son of Josiah)"]:::wicked
     
     %% Foreign Kings
     PharaohNecho["Pharaoh Necho II<br/>(Egypt)"]:::foreign
     Nebuchadnezzar["Nebuchadnezzar II<br/>(Babylon)"]:::foreign
     
-    %% Relationships - succession
+    %% Relationships - succession (Solid lines)
     Josiah -->|succeeded by| Jehoahaz
     Jehoahaz -->|succeeded by| Jehoiakim
     Jehoiakim -->|succeeded by| Jehoiachin
     Jehoiachin -->|succeeded by| Zedekiah
     
-    %% Foreign interventions
+    %% Family Relationships (Dashed green lines)
+    Josiah -.->|father of| Jehoahaz
+    Josiah -.->|father of| Jehoiakim
+    Josiah -.->|father of| Zedekiah
+    Jehoiakim -.->|father of| Jehoiachin
+    Zedekiah -.->|uncle of| Jehoiachin
+    linkStyle 4,5,6,7,8 stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
+    
+    %% Foreign interventions (Solid lines)
     PharaohNecho -->|killed| Josiah
     PharaohNecho -->|deposed, exiled to Egypt| Jehoahaz
     PharaohNecho -->|installed| Jehoiakim
@@ -38,7 +47,7 @@ flowchart TB
     Nebuchadnezzar -->|installed as puppet| Zedekiah
     Nebuchadnezzar -->|blinded, exiled| Zedekiah
     
-    %% Jeremiah's relationships
+    %% Jeremiah's relationships (Solid lines)
     Jeremiah -->|began ministry<br/>during reign of| Josiah
     Jeremiah -->|prophesied exile| Jehoahaz
     Jeremiah -->|opposed by,<br/>scroll burned| Jehoiakim
@@ -52,11 +61,13 @@ flowchart TB
     WickedKing["Wicked King"]:::wicked
     ForeignRuler["Foreign Ruler"]:::foreign
     ProphetNode["Prophet"]:::prophet
+    FamilyRel["--- Family Tie"]:::familyLink
     
     Legend --- RighteousKing
     Legend --- WickedKing
     Legend --- ForeignRuler
     Legend --- ProphetNode
+    Legend --- FamilyRel
 ```
 
 ## Timeline Overview
