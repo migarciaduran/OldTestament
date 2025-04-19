@@ -83,6 +83,25 @@ flowchart TB
     %% Leyenda
     Leyenda[("Leyenda")]
     NodoRey["Rey"]:::rey
+    LazoFamiliar["--- Lazo Familiar"]:::familyLink
+
+    Leyenda --- NodoRey
+    Leyenda --- LazoFamiliar
+```
+
+## Panorama Cronológico
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f9f9f9', 'primaryBorderColor': '#ccc'}}}%%
+gantt
+    title Reyes Durante el Ministerio Profético de Jeremías
+    dateFormat YYYY
+    axisFormat %Y a.C.
+    
+    section Reyes de Judá
+    Josías (640-609 a.C.)           : josias, -640, -609
+    Joacaz / Salum (609 a.C.)       : joacaz, -609, -609
+    Joacim / Eliaquim (609-598 a.C.): joacim, -609, -598
     Joaquín / Jeconías (598-597 a.C.): joaquin, -598, -597
     Sedequías / Matanías (597-586 a.C.): sedequias, -597, -586
     
