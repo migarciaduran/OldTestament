@@ -8,16 +8,15 @@ flowchart TB
     classDef malvado fill:#ffcccc,stroke:#333,stroke-width:1px
     classDef extranjero fill:#e6e6ff,stroke:#333,stroke-width:1px
     classDef profeta fill:#ffffcc,stroke:#333,stroke-width:1px
-    classDef familyLink stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
     
     %% Reyes y Profeta
     Jeremias["Jeremías<br/>(Profeta 627-post 586 a.C.)"]:::profeta
     
     Josias["Josías<br/>(640-609 a.C.)"]:::justo
-    Joacaz["Joacaz / Salum<br/>(609 a.C., Hijo de Josías)"]:::malvado
-    Joacim["Joacim / Eliaquim<br/>(609-598 a.C., Hijo de Josías)"]:::malvado
-    Joaquin["Joaquín / Jeconías / Conías<br/>(598-597 a.C., Hijo de Joacim)"]:::malvado
-    Sedequias["Sedequías / Matanías<br/>(597-586 a.C., Hijo de Josías)"]:::malvado
+    Joacaz["Joacaz / Salum<br/>(609 a.C.)"]:::malvado
+    Joacim["Joacim / Eliaquim<br/>(609-598 a.C.)"]:::malvado
+    Joaquin["Joaquín / Jeconías / Conías<br/>(598-597 a.C.)"]:::malvado
+    Sedequias["Sedequías / Matanías<br/>(597-586 a.C.)"]:::malvado
     
     %% Reyes Extranjeros
     FaraonNecao["Faraón Necao II<br/>(Egipto)"]:::extranjero
@@ -28,14 +27,6 @@ flowchart TB
     Joacaz -->|sucedido por| Joacim
     Joacim -->|sucedido por| Joaquin
     Joaquin -->|sucedido por| Sedequias
-    
-    %% Relaciones Familiares (Líneas verdes discontinuas)
-    Josias -.->|padre de| Joacaz
-    Josias -.->|padre de| Joacim
-    Josias -.->|padre de| Sedequias
-    Joacim -.->|padre de| Joaquin
-    Sedequias -.->|tío de| Joaquin
-    linkStyle 4,5,6,7,8 stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
     
     %% Intervenciones extranjeras (Líneas sólidas)
     FaraonNecao -->|mató a| Josias
@@ -61,28 +52,37 @@ flowchart TB
     ReyMalvado["Rey Malvado"]:::malvado
     GobernanteExtranjero["Gobernante Extranjero"]:::extranjero
     NodoProfeta["Profeta"]:::profeta
-    LazoFamiliar["--- Lazo Familiar"]:::familyLink
     
     Leyenda --- ReyJusto
     Leyenda --- ReyMalvado
     Leyenda --- GobernanteExtranjero
     Leyenda --- NodoProfeta
-    Leyenda --- LazoFamiliar
 ```
 
-## Panorama Cronológico
+## Relaciones Familiares
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#f9f9f9', 'primaryBorderColor': '#ccc'}}}%%
-gantt
-    title Reyes Durante el Ministerio Profético de Jeremías
-    dateFormat YYYY
-    axisFormat %Y a.C.
-    
-    section Reyes de Judá
-    Josías (640-609 a.C.)           : josias, -640, -609
-    Joacaz / Salum (609 a.C.)       : joacaz, -609, -609
-    Joacim / Eliaquim (609-598 a.C.): joacim, -609, -598
+flowchart TB
+    classDef rey fill:#f9f9f9,stroke:#333,stroke-width:1px
+    classDef familyLink stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
+
+    Josias["Josías"]:::rey
+    Joacaz["Joacaz / Salum"]:::rey
+    Joacim["Joacim / Eliaquim"]:::rey
+    Joaquin["Joaquín / Jeconías / Conías"]:::rey
+    Sedequias["Sedequías / Matanías"]:::rey
+
+    %% Relaciones Familiares (Líneas verdes discontinuas)
+    Josias -.->|padre de| Joacaz
+    Josias -.->|padre de| Joacim
+    Josias -.->|padre de| Sedequias
+    Joacim -.->|padre de| Joaquin
+    Sedequias -.->|tío de| Joaquin
+    linkStyle 0,1,2,3,4 stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
+
+    %% Leyenda
+    Leyenda[("Leyenda")]
+    NodoRey["Rey"]:::rey
     Joaquín / Jeconías (598-597 a.C.): joaquin, -598, -597
     Sedequías / Matanías (597-586 a.C.): sedequias, -597, -586
     

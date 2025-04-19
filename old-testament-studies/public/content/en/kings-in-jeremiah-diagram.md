@@ -8,16 +8,15 @@ flowchart TB
     classDef wicked fill:#ffcccc,stroke:#333,stroke-width:1px
     classDef foreign fill:#e6e6ff,stroke:#333,stroke-width:1px
     classDef prophet fill:#ffffcc,stroke:#333,stroke-width:1px
-    classDef familyLink stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
     
     %% Kings and Prophet
     Jeremiah["Jeremiah<br/>(Prophet 627-post 586 BC)"]:::prophet
     
     Josiah["Josiah<br/>(640-609 BC)"]:::righteous
-    Jehoahaz["Jehoahaz/Shallum<br/>(609 BC, Son of Josiah)"]:::wicked
-    Jehoiakim["Jehoiakim/Eliakim<br/>(609-598 BC, Son of Josiah)"]:::wicked
-    Jehoiachin["Jehoiachin/Coniah<br/>(598-597 BC, Son of Jehoiakim)"]:::wicked
-    Zedekiah["Zedekiah/Mattaniah<br/>(597-586 BC, Son of Josiah)"]:::wicked
+    Jehoahaz["Jehoahaz/Shallum<br/>(609 BC)"]:::wicked
+    Jehoiakim["Jehoiakim/Eliakim<br/>(609-598 BC)"]:::wicked
+    Jehoiachin["Jehoiachin/Coniah<br/>(598-597 BC)"]:::wicked
+    Zedekiah["Zedekiah/Mattaniah<br/>(597-586 BC)"]:::wicked
     
     %% Foreign Kings
     PharaohNecho["Pharaoh Necho II<br/>(Egypt)"]:::foreign
@@ -28,14 +27,6 @@ flowchart TB
     Jehoahaz -->|succeeded by| Jehoiakim
     Jehoiakim -->|succeeded by| Jehoiachin
     Jehoiachin -->|succeeded by| Zedekiah
-    
-    %% Family Relationships (Dashed green lines)
-    Josiah -.->|father of| Jehoahaz
-    Josiah -.->|father of| Jehoiakim
-    Josiah -.->|father of| Zedekiah
-    Jehoiakim -.->|father of| Jehoiachin
-    Zedekiah -.->|uncle of| Jehoiachin
-    linkStyle 4,5,6,7,8 stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
     
     %% Foreign interventions (Solid lines)
     PharaohNecho -->|killed| Josiah
@@ -61,12 +52,40 @@ flowchart TB
     WickedKing["Wicked King"]:::wicked
     ForeignRuler["Foreign Ruler"]:::foreign
     ProphetNode["Prophet"]:::prophet
-    FamilyRel["--- Family Tie"]:::familyLink
     
     Legend --- RighteousKing
     Legend --- WickedKing
     Legend --- ForeignRuler
     Legend --- ProphetNode
+```
+
+## Family Relationships
+
+```mermaid
+flowchart TB
+    classDef king fill:#f9f9f9,stroke:#333,stroke-width:1px
+    classDef familyLink stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
+
+    Josiah["Josiah"]:::king
+    Jehoahaz["Jehoahaz/Shallum"]:::king
+    Jehoiakim["Jehoiakim/Eliakim"]:::king
+    Jehoiachin["Jehoiachin/Coniah"]:::king
+    Zedekiah["Zedekiah/Mattaniah"]:::king
+
+    %% Family Relationships (Dashed green lines)
+    Josiah -.->|father of| Jehoahaz
+    Josiah -.->|father of| Jehoiakim
+    Josiah -.->|father of| Zedekiah
+    Jehoiakim -.->|father of| Jehoiachin
+    Zedekiah -.->|uncle of| Jehoiachin
+    linkStyle 0,1,2,3,4 stroke:#006400,stroke-width:2px,stroke-dasharray: 5 5
+
+    %% Legend
+    Legend[("Legend")]
+    KingNode["King"]:::king
+    FamilyRel["--- Family Tie"]:::familyLink
+
+    Legend --- KingNode
     Legend --- FamilyRel
 ```
 
