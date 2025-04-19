@@ -42,9 +42,9 @@ flowchart TB
     Jeremiah -->|began ministry<br/>during reign of| Josiah
     Jeremiah -->|prophesied exile| Jehoahaz
     Jeremiah -->|opposed by,<br/>scroll burned| Jehoiakim
-    Jeremiah -->|prophesied against<br/>as "broken pot"| Jehoiachin
+    Jeremiah -->|prophesied against<br/>as &quot;broken pot&quot;| Jehoiachin
     Jeremiah -->|advised surrender,<br/>imprisoned by| Zedekiah
-    Jeremiah -->|called him<br/>"God's servant"| Nebuchadnezzar
+    Jeremiah -->|called him<br/>&quot;God's servant&quot;| Nebuchadnezzar
     
     %% Legend
     Legend[("Legend")]
